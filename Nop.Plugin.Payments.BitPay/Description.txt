@@ -1,0 +1,9 @@
+﻿Group: Payment methods
+FriendlyName: Pay with bitcoin
+SystemName: Payments.Bitpay
+Version: 1.00
+SupportedVersions: 3.90
+Author: 
+DisplayOrder: 1
+FileName: Nop.Plugin.Payments.BitPay.dll
+Description: This plugin enables payment with bitcoin

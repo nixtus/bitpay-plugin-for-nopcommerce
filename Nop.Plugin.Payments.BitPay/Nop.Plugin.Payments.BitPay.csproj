@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7794026C-A981-4B08-AA63-747759E9048A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nop.Plugin.Payments.BitPay</RootNamespace>
+    <AssemblyName>Nop.Plugin.Payments.BitPay</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Presentation\Nop.Web\Plugins\Payments.Bitpay\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Presentation\Nop.Web\Plugins\Payments.Bitpay\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.6.4.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitPayAPI\Bitcoin\AbstractPeerEventListener.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Address.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\AddressFormatException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\AddressMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Base58.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\BitcoinSerializer.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Block.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\BlockChain.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Collections\Generic\AbstractCollection.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Collections\Generic\AbstractEnumerator.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Collections\Generic\AbstractQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Collections\Generic\IQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Collections\Generic\OrderedDictionary.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Common\UnixTime.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Discovery\DnsDiscovery.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Discovery\IPeerDiscovery.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Discovery\IrcDiscovery.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Discovery\PeerDiscoveryException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Discovery\SeedPeers.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\DownloadListener.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\DumpedPrivateKey.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\EcKey.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\GetBlocksMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\GetDataMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\InventoryItem.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\InventoryMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\IO\ByteBuffer.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\IO\StreamExtensions.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\IPeerEventListener.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\ListMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Message.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\NetworkConnection.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\NetworkParameters.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Peer.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\PeerAddress.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\PeerException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\PeerGroup.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Ping.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\ProtocolException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Script.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\ScriptException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Sha256Hash.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\StoredBlock.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Store\BlockStoreException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Store\BoundedOverheadBlockStore.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Store\DiskBlockStore.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Store\IBlockStore.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Store\MemoryBlockStore.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\AtomicTypes\AtomicInteger.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\AtomicTypes\IAtomic.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Callable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\AbstractBlockingQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\EnumerableToArrayBuffer.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\IBlockingQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\LinkedBlockingQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\QueueBrokenException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Collections\Generic\SynchronousQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\ContextCopyingRunnable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\CountDownLatch.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\AbstractExecutorService.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\CancellationException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\ExecutionException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\ExecutorCompletionService.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\Executors.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\ICompletionService.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\IExecutorService.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\IRecommendParallelism.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\IRejectedExecutionHandler.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\RejectedExecutionException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Execution\ThreadPoolExecutor.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Future\FutureTask.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Future\IFuture.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Future\IRunnableFuture.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Helpers\FIFOWaitQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Helpers\IQueuedSync.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Helpers\IWaitQueue.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Helpers\WaitNode.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\ICallable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\ICancellable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IContextCarrier.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IContextCarrierFactory.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IContextCopyingTask.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IExecutor.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IRunnable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\IThreadFactory.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Locks\ConditionVariable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Locks\FIFOConditionVariable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Locks\ICondition.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Locks\ILock.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Locks\ReentrantLock.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Runnable.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\SynchronizedHashSet.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\SystemExtensions.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Utility\ComparisonComparer.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Utility\Error.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Utility\SerializationUtilities.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Utility\WaitTime.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Threading\Void.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Transaction.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\TransactionInput.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\TransactionOutPoint.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\TransactionOutput.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\UnknownMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Utils.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\VarInt.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\VerificationException.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\VersionAck.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\VersionedChecksummedBytes.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\VersionMessage.cs" />
+    <Compile Include="BitPayAPI\Bitcoin\Wallet.cs" />
+    <Compile Include="BitPayAPI\BitPay.cs" />
+    <Compile Include="BitPayAPI\BitPayException.cs" />
+    <Compile Include="BitPayAPI\Buyer.cs" />
+    <Compile Include="BitPayAPI\Converters.cs" />
+    <Compile Include="BitPayAPI\ECKey.cs" />
+    <Compile Include="BitPayAPI\Invoice.cs" />
+    <Compile Include="BitPayAPI\InvoiceData.cs" />
+    <Compile Include="BitPayAPI\InvoicePaymentUrls.cs" />
+    <Compile Include="BitPayAPI\InvoiceTransaction.cs" />
+    <Compile Include="BitPayAPI\KeyUtils.cs" />
+    <Compile Include="BitPayAPI\Ledger.cs" />
+    <Compile Include="BitPayAPI\LedgerEntry.cs" />
+    <Compile Include="BitPayAPI\PayoutBatch.cs" />
+    <Compile Include="BitPayAPI\PayoutInfo.cs" />
+    <Compile Include="BitPayAPI\PayoutInstruction.cs" />
+    <Compile Include="BitPayAPI\PayoutInstructionBtcSummary.cs" />
+    <Compile Include="BitPayAPI\PayoutInstructionTransaction.cs" />
+    <Compile Include="BitPayAPI\Policy.cs" />
+    <Compile Include="BitPayAPI\Rate.cs" />
+    <Compile Include="BitPayAPI\Rates.cs" />
+    <Compile Include="BitPayAPI\RefundAmount.cs" />
+    <Compile Include="BitPayAPI\RefundInfo.cs" />
+    <Compile Include="BitPayAPI\Settlement.cs" />
+    <Compile Include="BitPayAPI\SettlementLedgerEntry.cs" />
+    <Compile Include="BitPayAPI\Token.cs" />
+    <Compile Include="BitPayAPI\WithHoldings.cs" />
+    <Compile Include="BitpayHelper.cs" />
+    <Compile Include="Controllers\PaymentBitpayController.cs" />
+    <Compile Include="BitpayPaymentSettings.cs" />
+    <Compile Include="BitpayPaymentProcessor.cs" />
+    <Compile Include="Models\ConfigurationModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteProvider.cs" />
+    <Compile Include="TransactionSpeed.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
+      <Project>{6BDA8332-939F-45B7-A25E-7A797260AE59}</Project>
+      <Name>Nop.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Nop.Services\Nop.Services.csproj">
+      <Project>{210541AD-F659-47DA-8763-16F36C5CD2F4}</Project>
+      <Name>Nop.Services</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj">
+      <Project>{75FD4163-333C-4DD5-854D-2EF294E45D94}</Project>
+      <Name>Nop.Web.Framework</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Configure.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PaymentInfo.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Description.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <Content Include="web.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
