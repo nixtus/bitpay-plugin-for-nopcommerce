@@ -1,4 +1,6 @@
 nopCommerce BitPay plugin
 ===========
 
-bitpay site: [https://bitpay.com/)
+Bitpay site: [https://bitpay.com/]
+
+Bitpay testing information: [https://bitpay.com/docs/testing]
