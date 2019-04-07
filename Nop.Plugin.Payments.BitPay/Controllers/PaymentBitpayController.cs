@@ -95,6 +95,7 @@ namespace Nop.Plugin.Payments.Bitpay.Controllers
             //save settings
             bitpaySettings.PairingCode = model.PairingCode;
             bitpaySettings.UseSandbox = model.UseSandbox;
+            bitpaySettings.CustomUrl = model.CustomUrl;
             bitpaySettings.TransactionSpeed = (TransactionSpeed)model.TransactionSpeedId;
 
             /* We do not clear cache after each setting update.
@@ -102,6 +103,7 @@ namespace Nop.Plugin.Payments.Bitpay.Controllers
              * and loaded from database after each update */
 
             _settingService.SaveSettingOverridablePerStore(bitpaySettings, x => x.PairingCode, model.PairingCode_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(bitpaySettings, x => x.CustomUrl, model.CustomUrl_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(bitpaySettings, x => x.UseSandbox, model.UseSandbox_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(bitpaySettings, x => x.TransactionSpeed, model.TransactionSpeed_OverrideForStore, storeScope, false);
 
