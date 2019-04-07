@@ -20,5 +20,9 @@ namespace Nop.Plugin.Payments.Bitpay.Models
         [NopResourceDisplayName("Plugins.Payments.Bitpay.Fields.PairingCode")]
         public string PairingCode { get; set; }
         public bool PairingCode_OverrideForStore { get; set; }
+        
+        [NopResourceDisplayName("Plugins.Payments.Bitpay.Fields.CustomUrl")]
+        public string CustomUrl { get; set; }
+        public bool CustomUrl_OverrideForStore { get; set; }
     }
 }

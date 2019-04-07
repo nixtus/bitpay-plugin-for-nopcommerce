@@ -6,7 +6,9 @@ namespace Nop.Plugin.Payments.BitPay
     {
         public static string GetEnvironmentUrl(BitpayPaymentSettings settings)
         {
-            return settings.UseSandbox ? "https://test.bitpay.com/" : "https://bitpay.com/";
+            return string.IsNullOrEmpty(settings.CustomUrl)
+                ? settings.UseSandbox ? "https://test.bitpay.com/" : "https://bitpay.com/"
+                : settings.CustomUrl;
         }
     }
 }

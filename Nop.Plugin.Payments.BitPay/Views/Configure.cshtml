@@ -43,6 +43,16 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.CustomUrl_OverrideForStore, model => model.CustomUrl, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.CustomUrl)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.CustomUrl)
+                        @Html.ValidationMessageFor(model => model.CustomUrl)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
                         &nbsp;
                     </div>
                     <div class="col-md-9">

@@ -11,5 +11,6 @@ namespace Nop.Plugin.Payments.Bitpay
         public string PairingCode { get; set; }
         public TransactionSpeed TransactionSpeed { get; set; }
         public bool UseSandbox { get; set; }
+        public string CustomUrl { get; set; }
     }
 }
